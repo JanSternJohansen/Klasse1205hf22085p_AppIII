@@ -5,7 +5,9 @@
 import 'package:flutter/material.dart';
 
 class Second extends StatefulWidget {
-  const Second({Key? key}) : super(key: key);
+  String message = '';
+
+  Second(this.message, {Key? key}) : super(key: key);
 
   @override
   State<Second> createState() => _SecondState();
@@ -17,7 +19,20 @@ class _SecondState extends State<Second> {
     return Scaffold(
       appBar: AppBar(
           title: Text('Second Screen')),
-      body: Text('Something i Second Screen')
+      body: Column(
+        children: <Widget>[
+        Text('Something i Second Screen'),
+          Text(widget.message),  // Magic
+          TextButton.icon(
+            onPressed: (){
+              Navigator.of(context).pop();
+            },
+            icon: Icon(Icons.edit_location),
+            label: Text('Go Back'),
+          ),
+        ]
+      )
+
     );
   }
 }

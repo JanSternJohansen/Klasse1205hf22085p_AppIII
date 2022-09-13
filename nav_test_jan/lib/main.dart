@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
             onPressed: (){
               Navigator.of(context).push(
                   MaterialPageRoute(
-                  builder: (context) => const Second())
+                  builder: (context) => Second('Hej fra Main'))
               );
             },
             icon: Icon(Icons.edit_location),
